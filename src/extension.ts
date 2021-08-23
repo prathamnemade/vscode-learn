@@ -1,9 +1,11 @@
 import * as vscode from 'vscode';
+import { HelloWorldPanel } from './HelloWorldPanel';
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.commands.registerCommand("vslearn.helloWorld", () => {
-			vscode.window.showInformationMessage("Hello!!");
+			vscode.window.showInformationMessage("Hello!!, Executing HelloWorldPanel");
+			HelloWorldPanel.createOrShow(context.extensionUri);
 		})
 	);
 
@@ -20,6 +22,18 @@ export function activate(context: vscode.ExtensionContext) {
 			} else {
 				console.log({ answer });
 			}
+		})
+	);
+
+	context.subscriptions.push(
+		vscode.commands.registerCommand("vslearn.refresh", async () => {
+			HelloWorldPanel.kill();
+			HelloWorldPanel.createOrShow(context.extensionUri);
+			setTimeout(() => {
+				vscode.commands.executeCommand(
+					"workbench.action.webview.openDeveloperTools"
+				);
+			}, 500);
 		})
 	);
 }
