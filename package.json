@@ -12,10 +12,31 @@
 	"activationEvents": [
 		"onCommand:vslearn.helloWorld",
 		"onCommand:vslearn.askQuestion",
-		"onCommand:vslearn.refresh"
+		"onCommand:vslearn.refresh",
+		"onView:vslearn-sidebar"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "vslearn-sidebar-view",
+					"title": "VSLearn",
+					"icon": "media/learn.svg"
+				}
+			]
+		},
+		"views": {
+			"vslearn-sidebar-view": [
+				{
+					"type": "webview",
+					"id": "vslearn-sidebar",
+					"name": "VSLearn",
+					"icon": "media/learn.svg",
+					"contextualTitle": "VSLearn"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "vslearn.helloWorld",

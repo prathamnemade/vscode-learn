@@ -135,9 +135,6 @@ export class HelloWorldPanel {
     const stylesMainUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "media", "vscode.css")
     );
-    // const cssUri = webview.asWebviewUri(
-    //   vscode.Uri.joinPath(this._extensionUri, "out", "compiled/swiper.css")
-    // );
 
     // // Use a nonce to only allow specific scripts to be run
     const nonce = getNonce();
