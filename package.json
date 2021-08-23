@@ -10,7 +10,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:vslearn.helloWorld"
+		"onCommand:vslearn.helloWorld",
+		"onCommand:vslearn.askQuestion",
+		"onCommand:vslearn.refresh"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -18,6 +20,16 @@
 			{
 				"command": "vslearn.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "vslearn.askQuestion",
+				"category": "VSLearn",
+				"title": "Ask Question"
+			},
+			{
+				"command": "vslearn.refresh",
+				"category": "VSLearn",
+				"title": "Refresh"
 			}
 		]
 	},
